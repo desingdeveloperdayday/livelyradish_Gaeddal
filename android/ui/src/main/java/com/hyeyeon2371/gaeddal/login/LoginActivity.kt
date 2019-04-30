@@ -12,6 +12,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.hyeyeon2371.gaeddal.R
+import com.hyeyeon2371.gaeddal.common.ResultCodeFlag
 import com.hyeyeon2371.gaeddal.databinding.ActivityLoginBinding
 import io.reactivex.Observable
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -40,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
         Observable.create<View> {
             binding.btnLoginGoogle.setOnClickListener(it::onNext)
         }.subscribe {
-            startActivityForResult(googleSignInClient.signInIntent, 1)
+            startActivityForResult(googleSignInClient.signInIntent, ResultCodeFlag.GOOGLE_LOGIN.value)
         }
 
         binding.executePendingBindings()
@@ -49,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(requestCode == 1){
+        if(requestCode == ResultCodeFlag.GOOGLE_LOGIN.value){
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try{
                 task.getResult(ApiException::class.java).let{
