@@ -1,6 +1,7 @@
 package com.hyeyeon2371.gaeddal.login
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -12,8 +13,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.hyeyeon2371.gaeddal.R
-import com.hyeyeon2371.gaeddal.common.ResultCodeFlag
+import com.hyeyeon2371.gaeddal.common.RequestCodeFlag
+import com.hyeyeon2371.gaeddal.common.kakao.KakaoCallback
 import com.hyeyeon2371.gaeddal.databinding.ActivityLoginBinding
+import com.kakao.auth.Session
+import com.kakao.usermgmt.UserManagement
+import com.kakao.usermgmt.callback.LogoutResponseCallback
 import io.reactivex.Observable
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -21,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
     private val viewModel : LoginViewModel by viewModel()
     private lateinit var binding : ActivityLoginBinding
     private lateinit var googleSignInClient : GoogleSignInClient
+    private var kakaoCallback: KakaoCallback? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +37,15 @@ class LoginActivity : AppCompatActivity() {
             }
 
         initDataBinding()
+        initKakao()
     }
+
+    override fun onDestroy() {
+        logoutKakao()
+        Session.getCurrentSession().removeCallback(kakaoCallback)
+        super.onDestroy()
+    }
+
 
     @SuppressLint("CheckResult")
     private fun initDataBinding() {
@@ -41,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
         Observable.create<View> {
             binding.btnLoginGoogle.setOnClickListener(it::onNext)
         }.subscribe {
-            startActivityForResult(googleSignInClient.signInIntent, ResultCodeFlag.GOOGLE_LOGIN.value)
+            startActivityForResult(googleSignInClient.signInIntent, RequestCodeFlag.GOOGLE_LOGIN.value)
         }
 
         binding.executePendingBindings()
@@ -50,17 +64,41 @@ class LoginActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(requestCode == ResultCodeFlag.GOOGLE_LOGIN.value){
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try{
-                task.getResult(ApiException::class.java).let{
-                    val mId = it?.id
-                    val email = it?.email
-                    val name = it?.displayName
+        when(requestCode){
+            RequestCodeFlag.GOOGLE_LOGIN.value ->{
+                val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+                try{
+                    task.getResult(ApiException::class.java).let{
+                        val mId = it?.id
+                        val email = it?.email
+                        val name = it?.displayName
+                    }
+                }catch (e: ApiException){
+                    Log.e("failed", e.message)
                 }
-            }catch (e: ApiException){
-                Log.e("failed", e.message)
             }
+
+            RequestCodeFlag.KAKAO_LOGIN.value ->{
+                if (resultCode == Activity.RESULT_OK &&
+                    Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
+                    return
+                }
+            }
+
         }
+    }
+
+    // kakao
+    private fun initKakao(){
+         kakaoCallback = KakaoCallback(viewModel)
+         Session.getCurrentSession().addCallback(kakaoCallback)
+    }
+
+    private fun logoutKakao() {
+        UserManagement.getInstance().requestLogout(object : LogoutResponseCallback() {
+            override fun onCompleteLogout() {
+
+            }
+        })
     }
 }

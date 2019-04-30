@@ -41,17 +41,22 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation mobileUiDependencies.kotlin
+    implementation mobileUiDependencies.rxKotlin
     implementation mobileUiDependencies.appCompatV7
     implementation mobileUiDependencies.constraintLayout
     implementation mobileUiDependencies.glide
 
+    // google login
+    implementation mobileUiDependencies.firebaseAuth
+    implementation mobileUiDependencies.gmsPlayAuth
+
+    // koin
     implementation mobileUiDependencies.koinAndroid
     implementation mobileUiDependencies.koinScope
     implementation mobileUiDependencies.koinViewModel
 
-    implementation mobileUiDependencies.firebaseAuth
-    implementation mobileUiDependencies.gmsPlayAuth
-    implementation mobileUiDependencies.rxKotlin
+    // kakao
+    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: project.KAKAO_SDK_VERSION
 
     testImplementation  mobileUiTestDependencies.junit
     androidTestImplementation mobileUiTestDependencies.supportRunner

@@ -16,4 +16,5 @@ class MainActivity : AppCompatActivity() {
         handler.postDelayed({this.startActivity(Intent(this@MainActivity, LoginActivity::class.java))},
             2000)
     }
+
 }
