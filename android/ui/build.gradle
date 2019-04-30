@@ -21,6 +21,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 configurations.all {
@@ -42,7 +45,17 @@ dependencies {
     implementation mobileUiDependencies.constraintLayout
     implementation mobileUiDependencies.glide
 
+    implementation mobileUiDependencies.koinAndroid
+    implementation mobileUiDependencies.koinScope
+    implementation mobileUiDependencies.koinViewModel
+
+    implementation mobileUiDependencies.firebaseAuth
+    implementation mobileUiDependencies.gmsPlayAuth
+    implementation mobileUiDependencies.rxKotlin
+
     testImplementation  mobileUiTestDependencies.junit
     androidTestImplementation mobileUiTestDependencies.supportRunner
     androidTestImplementation mobileUiTestDependencies.espressoCore
 }
+
+apply plugin: 'com.google.gms.google-services'
