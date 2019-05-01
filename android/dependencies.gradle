@@ -12,8 +12,11 @@ ext {
     constraintLayoutVersion = '1.1.3'
 
     koinVersion = '2.0.0-rc-2'
-    firebaseCoreVersion = '16.0.1'
+    firebaseCoreVersion = '16.0.8'
     firebaseAuthVersion = '16.0.4'
+    gmsPlayAuthVersion = '16.0.1'
+    firebaseMessagingVersion = '17.4.0'
+
 
     rxKotlinVersion = '2.3.0'
 
@@ -42,7 +45,8 @@ ext {
 
         firebaseCore: "com.google.firebase:firebase-core:${firebaseCoreVersion}",
         firebaseAuth: "com.google.firebase:firebase-auth:${firebaseAuthVersion}",
-        gmsPlayAuth: "com.google.android.gms:play-services-auth:${firebaseCoreVersion}",
+            firebaseMessaging: "com.google.firebase:firebase-messaging:${firebaseMessagingVersion}",
+        gmsPlayAuth: "com.google.android.gms:play-services-auth:${gmsPlayAuthVersion}",
 
         rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"
 

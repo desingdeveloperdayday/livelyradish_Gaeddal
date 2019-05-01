@@ -7,7 +7,7 @@ import com.kakao.auth.*
 import org.koin.core.context.startKoin
 
 open class App : Application(){
-    lateinit var globalApplication: App
+    private lateinit var globalApplication: App
 
     override fun onCreate() {
         super.onCreate()

@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.ext.androidCompileSdkVersion
@@ -49,6 +50,10 @@ dependencies {
     // google login
     implementation mobileUiDependencies.firebaseAuth
     implementation mobileUiDependencies.gmsPlayAuth
+
+    // fcm
+    implementation mobileUiDependencies.firebaseCore
+    implementation mobileUiDependencies.firebaseMessaging
 
     // koin
     implementation mobileUiDependencies.koinAndroid
