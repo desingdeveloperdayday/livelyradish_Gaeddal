@@ -10,7 +10,7 @@ import android.graphics.Color
 import android.support.v4.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.hyeyeon2371.gaeddal.MainActivity
+import com.hyeyeon2371.gaeddal.main.MainActivity
 import com.hyeyeon2371.gaeddal.R
 import java.text.SimpleDateFormat
 import java.util.*
