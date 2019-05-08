@@ -8,5 +8,7 @@
     <string name="quit_title">회원 탈퇴 전 확인하세요.</string>
     <string name="quit_content">회원탈퇴를 하시면 해당 계정은 즉시 탈퇴 처리 되며,\n해당 계정에 대한 회원 정보 및\n서비스 정보는 모두 삭제됩니다.</string>
 
+    <string name="settingmessage_toolbar_title">알림 문구 설정</string>
     <string name="settingmessage_empty">알림 문구를 추가하세요.</string>
+    <string name="writemessage_empty">알림 문구를 작성하세요.</string>
 </resources>

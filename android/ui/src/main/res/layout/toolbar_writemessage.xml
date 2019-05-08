@@ -5,7 +5,6 @@
     <data>
         <variable name="onClickBack" type="android.view.View.OnClickListener"/>
         <variable name="onClickAddMessage" type="android.view.View.OnClickListener"/>
-        <variable name="title" type="String"/>
     </data>
 
     <android.support.v7.widget.Toolbar
@@ -23,14 +22,6 @@
                     android:layout_height="@dimen/height_toolbar" app:srcCompat="?attr/actionModeCloseDrawable"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
-            <TextView
-                    android:text="@{title}"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@+id/ibtn_toolbar_quit"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:textSize="@dimen/textsize_toolbar_title"/>
             <Button
                     android:text="추가"
                     android:onClick="@{()->onClickAddMessage}"
