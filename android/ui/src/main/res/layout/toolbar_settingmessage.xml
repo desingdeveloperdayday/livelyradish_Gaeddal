@@ -4,7 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" >
     <data>
         <variable name="onClickBack" type="android.view.View.OnClickListener"/>
-        <variable name="title" type="String"/>
+        <variable name="onClickAddMessage" type="android.view.View.OnClickListener"/>
     </data>
 
     <android.support.v7.widget.Toolbar
@@ -16,17 +16,26 @@
                 android:layout_height="match_parent">
 
             <ImageButton
+                    android:id="@+id/ibtn_toolbar_quit"
                     android:onClick="@{()->onClickBack}"
                     android:layout_width="@dimen/height_toolbar"
                     android:layout_height="@dimen/height_toolbar" app:srcCompat="?attr/actionModeCloseDrawable"
-                    android:id="@+id/ibtn_toolbar_backbtn" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
             <TextView
-                    android:text="@{title}"
+                    android:text="알림 문구 설정"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/tv_toolbar_backbtn_title"
-                    app:layout_constraintStart_toEndOf="@+id/ibtn_toolbar_backbtn"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@+id/ibtn_toolbar_quit"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textSize="@dimen/textsize_toolbar_title"/>
+            <Button
+                    android:text="추가"
+                    android:onClick="@{()->onClickAddMessage}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.Toolbar>
