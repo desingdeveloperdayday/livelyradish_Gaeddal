@@ -68,6 +68,8 @@ dependencies {
     implementation 'com.github.hyeyeon2371:RoundButton:0.0.4'
     implementation mobileUiDependencies.recyclerView
 
+    implementation mobileUiDependencies.gson
+
     testImplementation  mobileUiTestDependencies.junit
     androidTestImplementation mobileUiTestDependencies.supportRunner
     androidTestImplementation mobileUiTestDependencies.espressoCore

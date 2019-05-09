@@ -2,7 +2,9 @@
 <layout   xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
           xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    <data>
+        <variable name="viewModel" type="com.hyeyeon2371.gaeddal.main.MainViewModel"/>
+    </data>
     <android.support.constraint.ConstraintLayout
             android:orientation="vertical"
 

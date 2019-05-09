@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Gaeddal</string>
     <string name="main_notificationempty">받은메세지가 없습니다.</string>
     <string name="main_notificationguest">지인을 연결해서 귀가시간을 전달받으세요.</string>
     <string name="main_timenotset">귀가시간을 알려드릴게요.\n시간을 설정하세요.</string>
