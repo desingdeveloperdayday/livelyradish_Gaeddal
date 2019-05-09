@@ -1,0 +1,5 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.hyeyeon2371.gaeddal.data">
+
+    <application android:allowBackup="true" />
+</manifest>

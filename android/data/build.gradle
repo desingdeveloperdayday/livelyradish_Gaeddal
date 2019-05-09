@@ -1,13 +1,40 @@
-apply plugin: 'kotlin'
+//apply plugin: 'kotlin'
+//
+//sourceCompatibility = 1.8
+//targetCompatibility = 1.8
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
-configurations.all {
-    resolutionStrategy {
-        force "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+android {
+    compileSdkVersion 28
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 }
+
 
 dependencies {
     def dataDependencies = rootProject.ext.dataDependencies
 
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
     implementation dataDependencies.kotlin
+    implementation dataDependencies.rxKotlin
+
+    // retrofit
+    implementation dataDependencies.retrofit
+    implementation dataDependencies.retrofitConverter
+    implementation dataDependencies.okhttp3Logging
+    implementation dataDependencies.retrofitRxJava2
+
+    implementation dataDependencies.rxAndroid
+    implementation dataDependencies.rxJava
+
+    implementation project(':domain')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
