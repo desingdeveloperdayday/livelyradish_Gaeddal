@@ -4,6 +4,8 @@
     <string name="main_notificationguest">지인을 연결해서 귀가시간을 전달받으세요.</string>
     <string name="main_timenotset">귀가시간을 알려드릴게요.\n시간을 설정하세요.</string>
     <string name="main_timeset">오늘 알릴 귀가 시간</string>
+    <string name="main_notificationtext_edit">알림 수정</string>
+    <string name="main_notificationtext_add">알림 추가</string>
 
     <string name="quit_title">회원 탈퇴 전 확인하세요.</string>
     <string name="quit_content">회원탈퇴를 하시면 해당 계정은 즉시 탈퇴 처리 되며,\n해당 계정에 대한 회원 정보 및\n서비스 정보는 모두 삭제됩니다.</string>

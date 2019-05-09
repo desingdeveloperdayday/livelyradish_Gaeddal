@@ -1,6 +1,6 @@
 package com.hyeyeon2371.gaeddal.common
 
-interface CallActivityNavigator {
-     fun redirectActivity()
+interface BaseActivityNavigator {
+     // fun redirectActivity()
      fun finishActivity()
 }
