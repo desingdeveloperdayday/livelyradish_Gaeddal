@@ -1,6 +1,8 @@
 package com.hyeyeon2371.gaeddal.common.kakao
 
 import android.util.Log
+import com.hyeyeon2371.gaeddal.common.SharedPrefersUtil
+import com.hyeyeon2371.gaeddal.data.entity.User
 import com.hyeyeon2371.gaeddal.login.LoginViewModel
 import com.kakao.auth.ISessionCallback
 import com.kakao.network.ErrorResult
@@ -10,7 +12,7 @@ import com.kakao.usermgmt.response.model.UserProfile
 import com.kakao.util.exception.KakaoException
 import com.kakao.util.helper.log.Logger
 
-class KakaoCallback(val viewModel: LoginViewModel) : ISessionCallback {
+class KakaoCallback(private val viewModel: LoginViewModel) : ISessionCallback {
     override fun onSessionOpenFailed(exception: KakaoException?) {
         Logger.e(exception.toString())
     }
@@ -23,6 +25,8 @@ class KakaoCallback(val viewModel: LoginViewModel) : ISessionCallback {
                 val nickName = result?.nickname
                 val id = result?.id
 
+                saveUserData(User(mId = id.toString(), email = result?.email, name = nickName))
+                viewModel.navigator.finishActivity()
             }
 
             override fun onSessionClosed(errorResult: ErrorResult?) {
@@ -36,6 +40,11 @@ class KakaoCallback(val viewModel: LoginViewModel) : ISessionCallback {
                 Logger.e(errorResult.toString())
             }
         })
+    }
+
+    private fun saveUserData(user: User) {
+        SharedPrefersUtil.saveValue(SharedPrefersUtil.SESSION_DATA, "isLoggedIn", true)
+        SharedPrefersUtil.saveValue(SharedPrefersUtil.SESSION_DATA, "loggedInUser", user)
     }
 
 }

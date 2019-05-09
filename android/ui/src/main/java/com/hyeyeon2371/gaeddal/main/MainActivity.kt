@@ -61,6 +61,10 @@ open class MainActivity : AppCompatActivity(), CallActivityNavigator {
         }
     }
 
+    override fun finishActivity() {
+        this@MainActivity.finish()
+    }
+
     private fun redirectLoginActivity() {
         handler.postDelayed(
             { this.startActivity(Intent(this@MainActivity, LoginActivity::class.java)) },

@@ -8,7 +8,7 @@ import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
-    viewModel { LoginViewModel() }
     viewModel { SettingPersonListViewModel() }
+    viewModel { (navigator : CallActivityNavigator) -> LoginViewModel(navigator) }
     viewModel { (navigator : CallActivityNavigator) ->  MainViewModel(navigator) }
 }
