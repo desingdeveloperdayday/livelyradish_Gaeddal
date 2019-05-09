@@ -16,4 +16,22 @@ open class BaseObservableViewModel : ViewModel(), Observable, LifecycleObserver 
         registry?.add(callback)
     }
 
+    fun notifyChange() {
+        synchronized(this) {
+            if (registry == null) {
+                return
+            }
+        }
+        registry!!.notifyCallbacks(this, 0, null)
+    }
+
+    fun notifyPropertyChanged(fieldId : Int){
+        synchronized(this){
+            if(registry == null){
+                return
+            }
+        }
+        registry!!.notifyCallbacks(this, fieldId, null)
+    }
+
 }

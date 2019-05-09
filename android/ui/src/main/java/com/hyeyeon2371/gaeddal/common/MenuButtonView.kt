@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.widget.TextView
 import com.hyeyeon2371.gaeddal.R
 
-class MenuButton : ConstraintLayout{
+class MenuButtonView : ConstraintLayout{
     constructor(context: Context) : this(context, null)
     constructor(context:Context, attrs:AttributeSet?) : this(context, attrs , 0){
         initView(context, attrs)
@@ -24,8 +24,8 @@ class MenuButton : ConstraintLayout{
             val li = getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val view = li.inflate(R.layout.view_menubutton, this, false)
 
-            val typedArray = context.obtainStyledAttributes(it, R.styleable.MenuButton, 0, 0)
-            val text = typedArray.getText(typedArray.getResourceId(R.styleable.MenuButton_text, 0))
+            val typedArray = context.obtainStyledAttributes(it, R.styleable.MenuButtonView, 0, 0)
+            val text = typedArray.getText(typedArray.getResourceId(R.styleable.MenuButtonView_text, 0))
 
             addView(view)
             findViewById<TextView>(R.id.menubutton_text).text =  text.toString()

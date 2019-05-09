@@ -14,17 +14,17 @@
                       app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
                       app:layout_constraintTop_toBottomOf="@+id/include3" android:layout_marginLeft="20dp"
                       android:layout_marginRight="20dp">
-            <com.hyeyeon2371.gaeddal.common.MenuButton
+            <com.hyeyeon2371.gaeddal.common.MenuButtonView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:text="리스트"/>
-            <com.hyeyeon2371.gaeddal.common.MenuButton
+            <com.hyeyeon2371.gaeddal.common.MenuButtonView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
                     app:text="전송할 사람 추가"/>
-            <com.hyeyeon2371.gaeddal.common.MenuButton
+            <com.hyeyeon2371.gaeddal.common.MenuButtonView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:text="요청온 리스트"/>
