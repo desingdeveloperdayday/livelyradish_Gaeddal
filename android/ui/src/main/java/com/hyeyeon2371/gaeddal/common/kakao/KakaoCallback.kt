@@ -43,8 +43,8 @@ class KakaoCallback(private val viewModel: LoginViewModel) : ISessionCallback {
     }
 
     private fun saveUserData(user: User) {
-        SharedPrefersUtil.saveValue(SharedPrefersUtil.SESSION_DATA, "isLoggedIn", true)
-        SharedPrefersUtil.saveValue(SharedPrefersUtil.SESSION_DATA, "loggedInUser", user)
+        SharedPrefersUtil.saveValue(SharedPrefersUtil.SESSION_DATA, SharedPrefersUtil.IS_LOGGED_IN, true)
+        SharedPrefersUtil.saveValue(SharedPrefersUtil.SESSION_DATA, SharedPrefersUtil.LOGGED_IN_USER, user)
     }
 
 }

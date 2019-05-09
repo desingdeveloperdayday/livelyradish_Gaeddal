@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.google.firebase.iid.FirebaseInstanceId
 import com.hyeyeon2371.gaeddal.R
-import com.hyeyeon2371.gaeddal.common.CallActivityNavigator
 import com.hyeyeon2371.gaeddal.common.SharedPrefersUtil
 import com.hyeyeon2371.gaeddal.databinding.ActivityMainBinding
 import com.hyeyeon2371.gaeddal.login.LoginActivity
@@ -16,7 +15,7 @@ import com.hyeyeon2371.gaeddal.mypage.MypageActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-open class MainActivity : AppCompatActivity(), CallActivityNavigator {
+open class MainActivity : AppCompatActivity(), MainActivityNavigator {
     private val viewModel: MainViewModel by viewModel {
         parametersOf(this)
     }
@@ -53,7 +52,7 @@ open class MainActivity : AppCompatActivity(), CallActivityNavigator {
     }
 
     override fun redirectActivity() {
-        val isLoggedIn = SharedPrefersUtil.getValue<Boolean>(SharedPrefersUtil.SESSION_DATA, "isLoggedIn") ?: false
+        val isLoggedIn = SharedPrefersUtil.getValue<Boolean>(SharedPrefersUtil.SESSION_DATA, SharedPrefersUtil.IS_LOGGED_IN) ?: false
         if (isLoggedIn) {
             this.startActivity(Intent(this, MypageActivity::class.java))
         } else {

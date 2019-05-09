@@ -7,6 +7,8 @@ import com.hyeyeon2371.gaeddal.App
 
 object SharedPrefersUtil {
     const val SESSION_DATA = "sessionData"
+    const val LOGGED_IN_USER = "loggedInUser"
+    const val IS_LOGGED_IN = "isLoggedIn"
     var sharedPrefers: SharedPreferences? = null
 
     inline fun <reified T> getValue(sharedPreferenceName: String, valueName: String): T? {

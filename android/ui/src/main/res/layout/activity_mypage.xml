@@ -3,6 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
 <data>
     <variable name="name" type="String"/>
+    <variable name="viewModel" type="com.hyeyeon2371.gaeddal.mypage.MypageViewModel"/>
 </data>
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -74,6 +75,7 @@
 
         <Button
                 android:text="로그아웃"
+                android:onClick="@{()->viewModel.onClickLogout()}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" android:id="@+id/btn_mypage_logout"
                 app:layout_constraintTop_toBottomOf="@+id/btn_mypage_quit"

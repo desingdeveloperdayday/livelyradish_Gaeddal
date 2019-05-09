@@ -13,7 +13,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.hyeyeon2371.gaeddal.R
-import com.hyeyeon2371.gaeddal.common.CallActivityNavigator
+import com.hyeyeon2371.gaeddal.common.BaseActivityNavigator
 import com.hyeyeon2371.gaeddal.common.RequestCodeFlag
 import com.hyeyeon2371.gaeddal.common.SharedPrefersUtil
 import com.hyeyeon2371.gaeddal.common.kakao.KakaoCallback
@@ -27,7 +27,7 @@ import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-class LoginActivity : AppCompatActivity(), CallActivityNavigator {
+class LoginActivity : AppCompatActivity(), BaseActivityNavigator {
     private val viewModel: LoginViewModel by viewModel { parametersOf(this)}
     private lateinit var binding: ActivityLoginBinding
     private lateinit var googleSignInClient: GoogleSignInClient
@@ -112,13 +112,10 @@ class LoginActivity : AppCompatActivity(), CallActivityNavigator {
     }
 
     private fun saveUserData(user: User) {
-        SharedPrefersUtil.saveValue(SharedPrefersUtil.SESSION_DATA, "isLoggedIn", true)
-        SharedPrefersUtil.saveValue(SharedPrefersUtil.SESSION_DATA, "loggedInUser", user)
+        SharedPrefersUtil.saveValue(SharedPrefersUtil.SESSION_DATA, SharedPrefersUtil.IS_LOGGED_IN, true)
+        SharedPrefersUtil.saveValue(SharedPrefersUtil.SESSION_DATA, SharedPrefersUtil.LOGGED_IN_USER, user)
     }
 
-    override fun redirectActivity() {
-
-    }
 
     override fun finishActivity() {
         this@LoginActivity.finish()
