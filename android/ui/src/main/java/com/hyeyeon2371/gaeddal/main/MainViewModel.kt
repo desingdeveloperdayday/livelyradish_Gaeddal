@@ -6,7 +6,7 @@ import android.databinding.ObservableInt
 import android.view.View
 import com.android.databinding.library.baseAdapters.BR
 import com.hyeyeon2371.gaeddal.common.BaseObservableViewModel
-import com.hyeyeon2371.gaeddal.common.SharedPrefersUtil
+import com.hyeyeon2371.gaeddal.common.util.SharedPrefersUtil
 import com.hyeyeon2371.gaeddal.data.entity.User
 import java.util.*
 

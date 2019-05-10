@@ -1,7 +1,7 @@
 package com.hyeyeon2371.gaeddal.common.kakao
 
 import android.util.Log
-import com.hyeyeon2371.gaeddal.common.SharedPrefersUtil
+import com.hyeyeon2371.gaeddal.common.util.SharedPrefersUtil
 import com.hyeyeon2371.gaeddal.data.entity.User
 import com.hyeyeon2371.gaeddal.login.LoginViewModel
 import com.kakao.auth.ISessionCallback

@@ -16,7 +16,7 @@
                 android:layout_height="match_parent">
 
             <ImageButton
-                    android:onClick="@{()->onClickBack}"
+                    android:onClick="@{onClickBack}"
                     android:layout_width="@dimen/height_toolbar"
                     android:layout_height="@dimen/height_toolbar" app:srcCompat="?attr/actionModeCloseDrawable"
                     android:id="@+id/ibtn_toolbar_backbtn" app:layout_constraintTop_toTopOf="parent"
