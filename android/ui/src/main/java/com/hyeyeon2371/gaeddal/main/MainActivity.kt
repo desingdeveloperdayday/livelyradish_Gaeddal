@@ -12,7 +12,7 @@ import com.hyeyeon2371.gaeddal.R
 import com.hyeyeon2371.gaeddal.common.util.TimerUtil
 import com.hyeyeon2371.gaeddal.databinding.ActivityMainBinding
 import com.hyeyeon2371.gaeddal.login.LoginActivity
-import com.hyeyeon2371.gaeddal.mypage.MypageActivity
+import com.hyeyeon2371.gaeddal.mypage.base.MypageActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import  android.arch.lifecycle.Observer

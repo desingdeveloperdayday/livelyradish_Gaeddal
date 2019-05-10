@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:bind="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android">
-<data>
-    <variable name="name" type="String"/>
-    <variable name="viewModel" type="com.hyeyeon2371.gaeddal.mypage.MypageViewModel"/>
-</data>
+    <data>
+        <variable name="viewModel" type="com.hyeyeon2371.gaeddal.mypage.base.MypageViewModel"/>
+    </data>
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:paddingTop="20dp" android:paddingLeft="40dp"
@@ -18,12 +17,14 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
         <ImageView
                 android:layout_width="80dp"
-                android:layout_height="80dp" app:srcCompat="@android:color/darker_gray"
+                android:layout_height="80dp"
+                bind:loadOvalImg="@{viewModel.user.profileUrl}"
                 android:id="@+id/imageView" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintHorizontal_bias="0.498" app:layout_constraintTop_toBottomOf="@+id/textView"
                 android:layout_marginTop="20dp"/>
         <android.support.constraint.ConstraintLayout
+                android:onClick="@{()->viewModel.onClickChangeName()}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@+id/imageView"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +36,7 @@
                     android:layout_height="wrap_content" android:id="@+id/textView3"
                     app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"/>
             <TextView
-                    android:text="@{name}"
+                    android:text="@{viewModel.user.name}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/textView4"
                     app:layout_constraintTop_toBottomOf="@+id/textView3" app:layout_constraintStart_toStartOf="parent"/>
@@ -69,7 +70,8 @@
                 app:text="회원 탈퇴"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/btn_mypage_settingperson" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_mypage_settingperson"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" android:id="@+id/btn_mypage_quit"
                 android:layout_marginTop="12dp"/>
 

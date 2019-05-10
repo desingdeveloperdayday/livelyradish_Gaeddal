@@ -23,8 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".login.LoginActivity"/>
-        <activity android:name=".settingperson.list.SettingPersonListActivity"/>
-        <activity android:name=".mypage.MypageActivity"/>
+        <activity android:name=".mypage.changename.ChangeNameActivity"/>
+        <activity android:name=".mypage.base.MypageActivity"/>
 
         <service android:name=".common.fcm.FirebaseMessagingService">
             <intent-filter>
