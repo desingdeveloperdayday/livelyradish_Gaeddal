@@ -1,6 +1,7 @@
 package com.hyeyeon2371.gaeddal.main
 
 import android.databinding.Bindable
+import android.databinding.ObservableField
 import android.databinding.ObservableInt
 import android.view.View
 import com.android.databinding.library.baseAdapters.BR
@@ -49,6 +50,14 @@ class MainViewModel(private val navigator: MainActivityNavigator) : BaseObservab
                 ObservableInt(View.GONE)
             }
         }
+
+    var timerMinutes = ObservableField("00")
+    var timerHours = ObservableField("00")
+
+    val remainingTime
+        @Bindable
+        get() = ObservableField("${timerHours.get()}:${timerMinutes.get()}")
+
 
     init {
         loggedInUser?.addObserver(this)
