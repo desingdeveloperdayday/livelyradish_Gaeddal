@@ -6,10 +6,10 @@ import com.google.gson.Gson
 import com.hyeyeon2371.gaeddal.App
 
 object SharedPrefersUtil {
+    var sharedPrefers: SharedPreferences? = null
     const val SESSION_DATA = "sessionData"
     const val LOGGED_IN_USER = "loggedInUser"
     const val IS_LOGGED_IN = "isLoggedIn"
-    var sharedPrefers: SharedPreferences? = null
 
     inline fun <reified T> getValue(sharedPreferenceName: String, valueName: String): T? {
         sharedPrefers =
