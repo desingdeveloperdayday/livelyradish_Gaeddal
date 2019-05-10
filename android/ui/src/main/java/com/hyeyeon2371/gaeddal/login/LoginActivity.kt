@@ -55,6 +55,12 @@ class LoginActivity : AppCompatActivity(), BaseActivityNavigator {
     @SuppressLint("CheckResult")
     private fun initDataBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        binding.iclLoginToolbar.title = "로그인"
+        binding.iclLoginToolbar.onClickBack = View.OnClickListener {
+            setResult(Activity.RESULT_CANCELED)
+            finish()
+        }
+
         binding.viewModel = viewModel
 
         Observable.create<View> {
