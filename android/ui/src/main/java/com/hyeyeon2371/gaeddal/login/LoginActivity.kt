@@ -15,7 +15,7 @@ import com.google.android.gms.common.api.ApiException
 import com.hyeyeon2371.gaeddal.R
 import com.hyeyeon2371.gaeddal.common.BaseActivityNavigator
 import com.hyeyeon2371.gaeddal.common.RequestCodeFlag
-import com.hyeyeon2371.gaeddal.common.SharedPrefersUtil
+import com.hyeyeon2371.gaeddal.common.util.SharedPrefersUtil
 import com.hyeyeon2371.gaeddal.common.kakao.KakaoCallback
 import com.hyeyeon2371.gaeddal.data.entity.User
 import com.hyeyeon2371.gaeddal.databinding.ActivityLoginBinding
@@ -23,7 +23,6 @@ import com.kakao.auth.Session
 import com.kakao.usermgmt.UserManagement
 import com.kakao.usermgmt.callback.LogoutResponseCallback
 import io.reactivex.Observable
-import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 

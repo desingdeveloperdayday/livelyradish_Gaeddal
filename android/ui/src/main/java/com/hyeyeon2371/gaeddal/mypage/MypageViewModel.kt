@@ -2,7 +2,7 @@ package com.hyeyeon2371.gaeddal.mypage
 
 import com.hyeyeon2371.gaeddal.common.BaseObservableViewModel
 import com.hyeyeon2371.gaeddal.common.BaseActivityNavigator
-import com.hyeyeon2371.gaeddal.common.SharedPrefersUtil
+import com.hyeyeon2371.gaeddal.common.util.SharedPrefersUtil
 
 class MypageViewModel(private val navigator: BaseActivityNavigator) : BaseObservableViewModel() {
 

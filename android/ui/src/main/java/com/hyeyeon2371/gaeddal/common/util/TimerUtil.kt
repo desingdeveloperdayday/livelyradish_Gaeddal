@@ -1,4 +1,4 @@
-package com.hyeyeon2371.gaeddal.common
+package com.hyeyeon2371.gaeddal.common.util
 
 import android.annotation.SuppressLint
 import android.arch.lifecycle.LifecycleOwner

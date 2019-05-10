@@ -1,4 +1,4 @@
-package com.hyeyeon2371.gaeddal.common
+package com.hyeyeon2371.gaeddal.common.util
 
 import android.content.Context
 import android.content.SharedPreferences
