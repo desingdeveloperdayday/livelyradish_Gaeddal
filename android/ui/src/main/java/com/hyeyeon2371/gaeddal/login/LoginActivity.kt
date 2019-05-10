@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -59,7 +60,7 @@ class LoginActivity : AppCompatActivity(), BaseActivityNavigator {
         Observable.create<View> {
             binding.btnLoginGoogle.setOnClickListener(it::onNext)
         }.subscribe {
-            startActivityForResult(googleSignInClient.signInIntent, RequestCodeFlag.GOOGLE_LOGIN.value)
+            startActivityForResult(googleSignInClient.signInIntent, RequestCodeFlag.GOOGLE_LOGIN.flag)
         }
 
         binding.executePendingBindings()
@@ -69,7 +70,7 @@ class LoginActivity : AppCompatActivity(), BaseActivityNavigator {
         super.onActivityResult(requestCode, resultCode, data)
 
         when (requestCode) {
-            RequestCodeFlag.GOOGLE_LOGIN.value -> {
+            RequestCodeFlag.GOOGLE_LOGIN.flag -> {
                 val task = GoogleSignIn.getSignedInAccountFromIntent(data)
                 try {
                     task.getResult(ApiException::class.java).let {
@@ -85,7 +86,7 @@ class LoginActivity : AppCompatActivity(), BaseActivityNavigator {
                 }
             }
 
-            RequestCodeFlag.KAKAO_LOGIN.value -> {
+            RequestCodeFlag.KAKAO_LOGIN.flag -> {
                 if (resultCode == Activity.RESULT_OK &&
                     Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)
                 ) {
@@ -119,4 +120,5 @@ class LoginActivity : AppCompatActivity(), BaseActivityNavigator {
     override fun finishActivity() {
         this@LoginActivity.finish()
     }
+
 }

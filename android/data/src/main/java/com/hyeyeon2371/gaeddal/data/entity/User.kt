@@ -35,5 +35,8 @@ data class User(var mId: String? = "", var email: String? = "", var name: String
         }
 
     var notificationCount : Int = 77
+
+    var profileUrl = ""
+
 }
 
