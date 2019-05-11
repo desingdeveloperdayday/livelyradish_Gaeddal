@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.hyeyeon2371.gaeddal.mypage.settingmessage.SettingMessageAdapter
+import com.hyeyeon2371.gaeddal.mypage.settingmessage.list.SettingMessageAdapter
 
 object DataBindingAdapter {
     @JvmStatic

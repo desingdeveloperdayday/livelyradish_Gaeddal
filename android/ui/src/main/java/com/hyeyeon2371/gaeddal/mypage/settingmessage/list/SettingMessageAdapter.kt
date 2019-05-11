@@ -1,4 +1,4 @@
-package com.hyeyeon2371.gaeddal.mypage.settingmessage
+package com.hyeyeon2371.gaeddal.mypage.settingmessage.list
 
 import android.view.View
 import com.hyeyeon2371.gaeddal.R

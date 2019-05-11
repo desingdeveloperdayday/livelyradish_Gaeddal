@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" >
+        xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <!--<variable name="viewModel" type="com.hyeyeon2371.gaeddal.mypage.settingmessage.list.SettingMessageViewModel"/>-->
+        <variable name="title" type="String"/>
         <variable name="onClickBack" type="android.view.View.OnClickListener"/>
         <variable name="onClickAddMessage" type="android.view.View.OnClickListener"/>
-        <variable name="title" type="String"/>
     </data>
 
     <android.support.v7.widget.Toolbar
@@ -18,7 +19,7 @@
 
             <ImageButton
                     android:id="@+id/ibtn_toolbar_quit"
-                    android:onClick="@{()->onClickBack}"
+                    android:onClick="@{onClickBack}"
                     android:layout_width="@dimen/height_toolbar"
                     android:layout_height="@dimen/height_toolbar" app:srcCompat="?attr/actionModeCloseDrawable"
                     app:layout_constraintTop_toTopOf="parent"
@@ -33,7 +34,7 @@
                     android:textSize="@dimen/textsize_toolbar_title"/>
             <Button
                     android:text="추가"
-                    android:onClick="@{()->onClickAddMessage}"
+                    android:onClick="@{onClickAddMessage}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"

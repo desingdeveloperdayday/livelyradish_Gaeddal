@@ -32,7 +32,7 @@ abstract class BaseRecyclerViewAdapter<T : ViewDataBinding, S : Any> : RecyclerV
 
     fun setItems(items: MutableList<S>) {
         this.items = items
-        notifyDataSetChanged()
+        notifyItemRangeChanged(0, itemCount)
     }
 
     abstract fun getLayout(): Int

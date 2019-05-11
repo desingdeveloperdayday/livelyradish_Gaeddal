@@ -34,4 +34,6 @@ open class BaseObservableViewModel : ViewModel(), Observable, LifecycleObserver 
         registry!!.notifyCallbacks(this, fieldId, null)
     }
 
+
+
 }

@@ -1,12 +1,12 @@
-package com.hyeyeon2371.gaeddal.mypage.settingmessage
+package com.hyeyeon2371.gaeddal.mypage.settingmessage.list
 
 import android.databinding.Bindable
 import android.databinding.ObservableField
 import com.android.databinding.library.baseAdapters.BR
-import com.hyeyeon2371.gaeddal.common.base.BaseActivityNavigator
 import com.hyeyeon2371.gaeddal.common.base.BaseObservableViewModel
 
-class SettingMessageViewModel(private val navigator: BaseActivityNavigator) : BaseObservableViewModel() {
+class SettingMessageViewModel(private val navigator: SettingMessageActivityNavigator) : BaseObservableViewModel() {
+    val toolbarTitle = "알림 문구 설정"
     var list: ObservableField<MutableList<String>> = ObservableField(ArrayList())
         @Bindable
         get() = field
@@ -18,7 +18,6 @@ class SettingMessageViewModel(private val navigator: BaseActivityNavigator) : Ba
     init {
         getMessages()
     }
-
 
     private fun getMessages() {
         // call setting messages
