@@ -1,8 +1,7 @@
 package com.hyeyeon2371.gaeddal.mypage.base
 
 import android.databinding.Bindable
-import com.hyeyeon2371.gaeddal.common.BaseObservableViewModel
-import com.hyeyeon2371.gaeddal.common.BaseActivityNavigator
+import com.hyeyeon2371.gaeddal.common.base.BaseObservableViewModel
 import com.hyeyeon2371.gaeddal.common.util.SharedPrefersUtil
 import com.hyeyeon2371.gaeddal.data.entity.User
 

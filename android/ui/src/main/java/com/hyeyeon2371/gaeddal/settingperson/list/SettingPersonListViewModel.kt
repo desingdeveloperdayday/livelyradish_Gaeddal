@@ -3,7 +3,7 @@ package com.hyeyeon2371.gaeddal.settingperson.list
 import android.databinding.Bindable
 import android.databinding.ObservableBoolean
 import com.android.databinding.library.baseAdapters.BR
-import com.hyeyeon2371.gaeddal.common.BaseObservableViewModel
+import com.hyeyeon2371.gaeddal.common.base.BaseObservableViewModel
 
 class SettingPersonListViewModel : BaseObservableViewModel() {
     val toolbarTitle = "리스트"

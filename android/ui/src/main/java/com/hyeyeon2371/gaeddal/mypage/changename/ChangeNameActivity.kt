@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.hyeyeon2371.gaeddal.R
-import com.hyeyeon2371.gaeddal.common.BaseActivityNavigator
+import com.hyeyeon2371.gaeddal.common.base.BaseActivityNavigator
 import com.hyeyeon2371.gaeddal.databinding.ActivityChangenameBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
