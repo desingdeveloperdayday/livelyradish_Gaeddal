@@ -15,7 +15,7 @@
                 android:name="com.kakao.sdk.AppKey"
                 android:value="@string/KAKAO_API_KEY"/>
 
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".mypage.settingmessage.list.SettingMessageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -23,8 +23,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".login.LoginActivity"/>
-        <activity android:name=".mypage.changename.ChangeNameActivity"/>
+
+        <!-- mypage -->
         <activity android:name=".mypage.base.MypageActivity"/>
+        <activity android:name=".mypage.changename.ChangeNameActivity"/>
+        <activity android:name=".mypage.settingmessage.write.WriteSettingMessageActivity"/>
+        <activity android:name=".mypage.settingmessage.edit.EditSettingMessageActivity"/>
+        <!--<activity android:name=".mypage.settingmessage.SettingMessageActivity"/>-->
 
         <service android:name=".common.fcm.FirebaseMessagingService">
             <intent-filter>
