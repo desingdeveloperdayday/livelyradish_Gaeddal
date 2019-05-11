@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:bind="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View"/>
+        <variable name="viewModel" type="com.hyeyeon2371.gaeddal.mypage.settingperson.list.SettingPersonListViewModel"/>
+    </data>
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
         <include layout="@layout/toolbar_settingpersonlist" app:layout_constraintTop_toTopOf="parent"
                  app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
@@ -16,12 +19,15 @@
                                                 app:layout_constraintStart_toStartOf="parent"
                                                 app:layout_constraintEnd_toEndOf="parent"
                                                 app:layout_constraintBottom_toBottomOf="parent"
+                                                bind:settingPerson="@{viewModel.list}"
                                                 android:id="@+id/rv_settingpersonlist"/>
         <android.support.constraint.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="@+id/rv_settingpersonlist"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/rv_settingpersonlist"
+                android:visibility="@{viewModel.list.size() > 0 ? View.GONE : View.VISIBLE}"
                 android:id="@+id/cl_settingpsersonlist_empty">
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
