@@ -24,6 +24,7 @@ abstract class BaseActivity<T : ViewDataBinding, VM : BaseObservableViewModel, N
     }
 
     abstract fun getLayout(): Int
-    abstract fun initView()
     abstract fun injectViewModel() : VM
+    abstract fun initView()
+
 }

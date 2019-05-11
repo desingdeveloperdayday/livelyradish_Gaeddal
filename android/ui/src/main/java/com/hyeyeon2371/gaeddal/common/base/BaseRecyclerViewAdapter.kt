@@ -8,8 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-abstract class BaseRecyclerViewAdapter<T : ViewDataBinding, S : Any> : RecyclerView.Adapter<BaseViewHolder>() {
-    private var items: MutableList<S> = ArrayList()
+abstract class BaseRecyclerViewAdapter<T : ViewDataBinding, O : Any> : RecyclerView.Adapter<BaseViewHolder>() {
+    private var items: MutableList<O> = ArrayList()
     lateinit var binding: T
 
     override fun onCreateViewHolder(parent: ViewGroup, @LayoutRes layout: Int): BaseViewHolder {
@@ -30,7 +30,7 @@ abstract class BaseRecyclerViewAdapter<T : ViewDataBinding, S : Any> : RecyclerV
         return getLayout()
     }
 
-    fun setItems(items: MutableList<S>) {
+    fun setItems(items: MutableList<O>) {
         this.items = items
         notifyItemRangeChanged(0, itemCount)
     }

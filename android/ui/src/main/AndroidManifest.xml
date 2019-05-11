@@ -30,6 +30,7 @@
         <activity android:name=".mypage.settingmessage.write.WriteSettingMessageActivity"/>
         <activity android:name=".mypage.settingmessage.edit.EditSettingMessageActivity"/>
         <activity android:name=".mypage.settingmessage.list.SettingMessageActivity"/>
+        <activity android:name=".mypage.settingperson.list.SettingPersonListActivity"/>
 
         <activity android:name=".mypage.settingperson.base.SettingPersonActivity"/>
 
