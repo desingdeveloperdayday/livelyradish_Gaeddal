@@ -20,4 +20,11 @@ class MypageViewModel(private val navigator: MypageActivityNavigator) : BaseObse
         navigator.redirectChangeNameActivity()
     }
 
+    fun onClickSettingMessage(){
+        navigator.redirectSettingMessageActivity()
+    }
+
+    fun onClickSettingPerson(){
+        navigator.redirectSettingPersonActivity()
+    }
 }

@@ -12,7 +12,9 @@ import com.hyeyeon2371.gaeddal.mypage.settingmessage.list.SettingMessageActivity
 import com.hyeyeon2371.gaeddal.mypage.settingmessage.list.SettingMessageViewModel
 import com.hyeyeon2371.gaeddal.mypage.settingmessage.write.WriteSettingMessageActivityNavigator
 import com.hyeyeon2371.gaeddal.mypage.settingmessage.write.WriteSettingMessageViewModel
-import com.hyeyeon2371.gaeddal.settingperson.list.SettingPersonListViewModel
+import com.hyeyeon2371.gaeddal.mypage.settingperson.base.SettingPersonActivityNavigator
+import com.hyeyeon2371.gaeddal.mypage.settingperson.base.SettingPersonViewModel
+import com.hyeyeon2371.gaeddal.mypage.settingperson.list.SettingPersonListViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -24,4 +26,5 @@ val appModule = module {
     viewModel { (navigator: SettingMessageActivityNavigator) -> SettingMessageViewModel(navigator) }
     viewModel { (navigator: WriteSettingMessageActivityNavigator) -> WriteSettingMessageViewModel(navigator) }
     viewModel { (navigator: EditSettingMessageActivityNavigator) -> EditSettingMessageViewModel(navigator) }
+    viewModel { (navigator: SettingPersonActivityNavigator) -> SettingPersonViewModel(navigator) }
 }
