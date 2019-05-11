@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable name="user" type="com.hyeyeon2371.gaeddal.data.entity.User"/>
+    </data>
+    <LinearLayout
+            android:id="@+id/ll_settingpersonlist_container"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView android:layout_width="100dp" android:layout_height="100dp"
+                   bind:loadOvalImg="@{user.profileUrl}"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:layout_gravity="center_vertical" android:layout_marginLeft="16dp"
+                  android:text="@{user.name}"/>
+    </LinearLayout>
+
+</layout>

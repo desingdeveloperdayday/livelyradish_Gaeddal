@@ -5,7 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.hyeyeon2371.gaeddal.data.entity.User
 import com.hyeyeon2371.gaeddal.mypage.settingmessage.list.SettingMessageAdapter
+import com.hyeyeon2371.gaeddal.mypage.settingperson.list.SettingPersonListAdapter
 
 object DataBindingAdapter {
     @JvmStatic
@@ -25,5 +27,8 @@ object DataBindingAdapter {
     fun RecyclerView.bindSettingMsg(items: MutableList<String>) =
         (this.adapter as SettingMessageAdapter).setItems(items)
 
-
+    @JvmStatic
+    @BindingAdapter("bind:settingPerson")
+    fun RecyclerView.bindSettingPerson(items: MutableList<User>) =
+        (this.adapter as SettingPersonListAdapter).setItems(items)
 }
