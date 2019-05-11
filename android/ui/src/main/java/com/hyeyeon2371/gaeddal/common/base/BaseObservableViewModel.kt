@@ -1,4 +1,4 @@
-package com.hyeyeon2371.gaeddal.common
+package com.hyeyeon2371.gaeddal.common.base
 
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.ViewModel

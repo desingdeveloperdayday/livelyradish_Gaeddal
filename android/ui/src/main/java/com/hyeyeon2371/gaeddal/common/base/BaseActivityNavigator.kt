@@ -1,4 +1,4 @@
-package com.hyeyeon2371.gaeddal.common
+package com.hyeyeon2371.gaeddal.common.base
 
 import android.widget.Toast
 import com.hyeyeon2371.gaeddal.App

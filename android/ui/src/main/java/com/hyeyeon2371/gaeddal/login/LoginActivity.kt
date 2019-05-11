@@ -8,13 +8,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.hyeyeon2371.gaeddal.R
-import com.hyeyeon2371.gaeddal.common.BaseActivityNavigator
+import com.hyeyeon2371.gaeddal.common.base.BaseActivityNavigator
 import com.hyeyeon2371.gaeddal.common.RequestCodeFlag
 import com.hyeyeon2371.gaeddal.common.util.SharedPrefersUtil
 import com.hyeyeon2371.gaeddal.common.kakao.KakaoCallback
