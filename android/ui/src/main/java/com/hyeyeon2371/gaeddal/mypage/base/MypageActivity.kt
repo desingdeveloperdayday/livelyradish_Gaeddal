@@ -12,6 +12,8 @@ import com.hyeyeon2371.gaeddal.common.util.SharedPrefersUtil
 import com.hyeyeon2371.gaeddal.data.entity.User
 import com.hyeyeon2371.gaeddal.databinding.ActivityMypageBinding
 import com.hyeyeon2371.gaeddal.mypage.changename.ChangeNameActivity
+import com.hyeyeon2371.gaeddal.mypage.settingmessage.list.SettingMessageActivity
+import com.hyeyeon2371.gaeddal.mypage.settingperson.base.SettingPersonActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -49,6 +51,14 @@ class MypageActivity : AppCompatActivity(), MypageActivityNavigator {
         }.let {
             startActivityForResult(it, RequestCodeFlag.CHANGE_NAME.flag)
         }
+    }
+
+    override fun redirectSettingMessageActivity() {
+        startActivity(Intent(this, SettingMessageActivity::class.java))
+    }
+
+    override fun redirectSettingPersonActivity() {
+        startActivity(Intent(this, SettingPersonActivity::class.java))
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

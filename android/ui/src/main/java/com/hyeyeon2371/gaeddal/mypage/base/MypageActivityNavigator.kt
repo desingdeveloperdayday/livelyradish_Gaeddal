@@ -4,4 +4,6 @@ import com.hyeyeon2371.gaeddal.common.base.BaseActivityNavigator
 
 interface MypageActivityNavigator : BaseActivityNavigator {
     fun redirectChangeNameActivity()
+    fun redirectSettingMessageActivity()
+    fun redirectSettingPersonActivity()
 }

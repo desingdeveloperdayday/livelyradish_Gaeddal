@@ -1,4 +1,4 @@
-package com.hyeyeon2371.gaeddal.settingperson.list
+package com.hyeyeon2371.gaeddal.mypage.settingperson.list
 
 import android.databinding.Bindable
 import android.databinding.ObservableBoolean

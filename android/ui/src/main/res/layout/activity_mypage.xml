@@ -51,6 +51,7 @@
         <com.hyeyeon2371.gaeddal.common.MenuButtonView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.onClickSettingMessage()}"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +59,7 @@
                 app:text="알림 문구 설정"/>
 
         <com.hyeyeon2371.gaeddal.common.MenuButtonView
+                android:onClick="@{()->viewModel.onClickSettingPerson()}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/btn_mypage_settingmessage"
