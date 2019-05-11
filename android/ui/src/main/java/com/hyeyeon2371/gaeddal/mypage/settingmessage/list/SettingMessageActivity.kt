@@ -8,9 +8,11 @@ import android.widget.LinearLayout
 import com.hyeyeon2371.gaeddal.BR
 import com.hyeyeon2371.gaeddal.R
 import com.hyeyeon2371.gaeddal.common.RequestCodeFlag
+import com.hyeyeon2371.gaeddal.common.ResultCodeFlag
 import com.hyeyeon2371.gaeddal.common.base.BaseActivity
 import com.hyeyeon2371.gaeddal.common.base.BaseActivityNavigator
 import com.hyeyeon2371.gaeddal.databinding.ActivitySettingmessageBinding
+import com.hyeyeon2371.gaeddal.mypage.settingmessage.edit.EditSettingMessageActivity
 import com.hyeyeon2371.gaeddal.mypage.settingmessage.write.WriteSettingMessageActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -25,7 +27,7 @@ class SettingMessageActivity :
     override fun injectViewModel(): SettingMessageViewModel = vm
 
     override fun initView() {
-        binding.rvSettingmessageList.adapter = SettingMessageAdapter()
+        binding.rvSettingmessageList.adapter = SettingMessageAdapter().apply { viewModel = vm }
         binding.rvSettingmessageList.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         binding.iclSettingmessageToolbar.title = viewModel.toolbarTitle
         binding.iclSettingmessageToolbar.onClickBack = View.OnClickListener { finishActivity() }
@@ -44,6 +46,12 @@ class SettingMessageActivity :
         )
     }
 
+    override fun redirectEditMessageActivity() {
+        val intent = Intent(this, EditSettingMessageActivity::class.java)
+        intent.putExtra("message", viewModel.list.get()?.get(viewModel.selectedMessagePos))
+        startActivityForResult(intent, RequestCodeFlag.EDIT_SETTING_MSG.flag)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
@@ -55,6 +63,24 @@ class SettingMessageActivity :
                         viewModel.notifyPropertyChanged(BR.list)
                     }
                 }
+
+                RequestCodeFlag.EDIT_SETTING_MSG.flag -> {
+                    val resultFlag = data?.getIntExtra("resultFlag", 0) ?: 0
+                    when (resultFlag) {
+                        ResultCodeFlag.DELETE_SETTING_MSG.flag -> {
+                            viewModel.list.get()?.removeAt(viewModel.selectedMessagePos)
+                            (binding.rvSettingmessageList.adapter as SettingMessageAdapter).notifyItemRemoved(viewModel.selectedMessagePos)
+                        }
+                        ResultCodeFlag.EDIT_SETTING_MSG.flag -> {
+                            data?.getStringExtra("message").let {
+                                viewModel.list.get()?.set(viewModel.selectedMessagePos, it ?: "")
+                                (binding.rvSettingmessageList.adapter as SettingMessageAdapter).notifyItemChanged(
+                                    viewModel.selectedMessagePos
+                                )
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -62,4 +88,5 @@ class SettingMessageActivity :
 
 interface SettingMessageActivityNavigator : BaseActivityNavigator {
     fun redirectWriteMessageActivity()
+    fun redirectEditMessageActivity()
 }

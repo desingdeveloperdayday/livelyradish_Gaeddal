@@ -6,6 +6,8 @@ import com.hyeyeon2371.gaeddal.main.MainActivityNavigator
 import com.hyeyeon2371.gaeddal.main.MainViewModel
 import com.hyeyeon2371.gaeddal.mypage.base.MypageActivityNavigator
 import com.hyeyeon2371.gaeddal.mypage.base.MypageViewModel
+import com.hyeyeon2371.gaeddal.mypage.settingmessage.edit.EditSettingMessageActivityNavigator
+import com.hyeyeon2371.gaeddal.mypage.settingmessage.edit.EditSettingMessageViewModel
 import com.hyeyeon2371.gaeddal.mypage.settingmessage.list.SettingMessageActivityNavigator
 import com.hyeyeon2371.gaeddal.mypage.settingmessage.list.SettingMessageViewModel
 import com.hyeyeon2371.gaeddal.mypage.settingmessage.write.WriteSettingMessageActivityNavigator
@@ -21,4 +23,5 @@ val appModule = module {
     viewModel { (navigator: MypageActivityNavigator) -> MypageViewModel(navigator) }
     viewModel { (navigator: SettingMessageActivityNavigator) -> SettingMessageViewModel(navigator) }
     viewModel { (navigator: WriteSettingMessageActivityNavigator) -> WriteSettingMessageViewModel(navigator) }
+    viewModel { (navigator: EditSettingMessageActivityNavigator) -> EditSettingMessageViewModel(navigator) }
 }

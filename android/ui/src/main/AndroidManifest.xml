@@ -28,6 +28,7 @@
         <activity android:name=".mypage.base.MypageActivity"/>
         <activity android:name=".mypage.changename.ChangeNameActivity"/>
         <activity android:name=".mypage.settingmessage.write.WriteSettingMessageActivity"/>
+        <activity android:name=".mypage.settingmessage.edit.EditSettingMessageActivity"/>
         <!--<activity android:name=".mypage.settingmessage.SettingMessageActivity"/>-->
 
         <service android:name=".common.fcm.FirebaseMessagingService">

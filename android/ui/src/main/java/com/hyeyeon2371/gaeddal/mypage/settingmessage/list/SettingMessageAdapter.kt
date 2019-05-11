@@ -7,6 +7,8 @@ import com.hyeyeon2371.gaeddal.common.base.BaseViewHolder
 import com.hyeyeon2371.gaeddal.databinding.ItemSettingmessageBinding
 
 class SettingMessageAdapter : BaseRecyclerViewAdapter<ItemSettingmessageBinding, String>() {
+    lateinit var viewModel : SettingMessageViewModel
+
     override fun getLayout(): Int {
         return R.layout.item_settingmessage
     }
@@ -18,6 +20,7 @@ class SettingMessageAdapter : BaseRecyclerViewAdapter<ItemSettingmessageBinding,
     inner class Holder(binding: ItemSettingmessageBinding) : BaseViewHolder(binding.root) {
         override fun bind(item: Any) {
             binding.message = item as String
+            binding.clSettingmessageContainer.setOnClickListener { viewModel.onClickMessage(adapterPosition) }
             binding.executePendingBindings()
         }
     }
